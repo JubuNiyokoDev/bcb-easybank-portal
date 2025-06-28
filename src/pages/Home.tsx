@@ -1,9 +1,9 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Shield, Clock, Globe, Download, MessageCircle } from 'lucide-react';
+import { ArrowRight, Shield, Clock, Globe } from 'lucide-react';
 
-const Index = () => {
+const Home = () => {
   const features = [
     {
       icon: <Clock className="w-8 h-8 text-blue-600" />,
@@ -20,13 +20,6 @@ const Index = () => {
       title: 'Accessible',
       description: 'Disponible 24h/24, 7j/7 depuis n\'importe où au Burundi.'
     }
-  ];
-
-  const services = [
-    { name: 'Carte SESAME', desc: 'Carte de débit pour vos achats quotidiens' },
-    { name: 'Carte VISA', desc: 'Carte internationale pour voyager' },
-    { name: 'Compte Muhira', desc: 'Compte d\'épargne avantageux' },
-    { name: 'Transfert International', desc: 'Envoyez de l\'argent à l\'étranger' }
   ];
 
   return (
@@ -96,7 +89,12 @@ const Index = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {services.map((service, index) => (
+            {[
+              { name: 'Carte SESAME', desc: 'Carte de débit pour vos achats quotidiens' },
+              { name: 'Carte VISA', desc: 'Carte internationale pour voyager' },
+              { name: 'Compte Muhira', desc: 'Compte d\'épargne avantageux' },
+              { name: 'Transfert International', desc: 'Envoyez de l\'argent à l\'étranger' }
+            ].map((service, index) => (
               <div key={index} className="card">
                 <h3 className="font-semibold text-blue-600 mb-2">
                   {service.name}
@@ -115,58 +113,6 @@ const Index = () => {
             <Link to="/services" className="primary-button">
               Voir tous les services
             </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* How it Works */}
-      <section className="py-20 px-4 bg-white">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-              Comment ça marche ?
-            </h2>
-            <p className="text-xl text-gray-600">
-              Trois étapes simples pour accéder à vos services bancaires
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                step: "1",
-                title: "Choisissez votre service",
-                description: "Parcourez nos services et téléchargez les formulaires",
-                icon: <Download className="w-6 h-6" />
-              },
-              {
-                step: "2", 
-                title: "Soumettez vos documents",
-                description: "Téléversez vos documents pour vérification biométrique",
-                icon: <Shield className="w-6 h-6" />
-              },
-              {
-                step: "3",
-                title: "Réservez votre rendez-vous",
-                description: "Choisissez une agence et confirmez votre visite",
-                icon: <MessageCircle className="w-6 h-6" />
-              }
-            ].map((item, index) => (
-              <div key={index} className="text-center">
-                <div className="w-16 h-16 bg-blue-600 text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6">
-                  {item.step}
-                </div>
-                <div className="flex justify-center mb-4 text-blue-600">
-                  {item.icon}
-                </div>
-                <h3 className="text-xl font-semibold text-gray-800 mb-3">
-                  {item.title}
-                </h3>
-                <p className="text-gray-600">
-                  {item.description}
-                </p>
-              </div>
-            ))}
           </div>
         </div>
       </section>
@@ -190,4 +136,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Home;
